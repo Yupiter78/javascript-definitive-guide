@@ -18,10 +18,12 @@ class Histogram {
     add(text) {
         text = text.replace(/\s/g, "").toUpperCase();
 
-        for (let character of text) {
-            let count = this.letterCounts.get(character);
-            this.letterCounts.set(character, count + 1);
+        text.split("").reduce(( prev, cur) => {
+            let count = this.letterCounts.get(cur);
+            this.letterCounts.set(cur, count + 1);
             this.totalLetters++;
-        }
+            return prev;
+
+        }, this);
     }
 }
