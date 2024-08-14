@@ -36,14 +36,13 @@ class Histogram {
             }
         });
 
-        for (let entry of entries) {
-            entry[1] = (entry[1] / this.totalLetters) * 100;
-        }
-
-        entries = entries.filter((entry) => entry[1] >= 1);
-        let lines = entries.map(
-            ([l, n]) => `${l}: ${"#".repeat(Math.round(n))}${n.toFixed(2)}%`
-        );
-        return lines.join("\n");
+        return entries
+            .map(([_, count]) => (count / this.totalLetters) * 100)
+            .filter(([_, count]) => count >= 1)
+            .map(
+                ([char, count]) =>
+                    `${char}: ${"#".repeat(Math.round(count))}${count.toFixed(2)}%`
+            )
+            .join("\n");
     }
 }
