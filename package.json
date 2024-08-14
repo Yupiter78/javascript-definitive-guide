@@ -1,0 +1,22 @@
+{
+  "name": "javascript-definitive-guide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "histograms.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yupiter78/javascript-definitive-guide.git"
+  },
+  "author": "JS-Neo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yupiter78/javascript-definitive-guide/issues"
+  },
+  "homepage": "https://github.com/Yupiter78/javascript-definitive-guide#readme",
+  "devDependencies": {
+    "prettier": "3.3.3"
+  }
+}
