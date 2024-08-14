@@ -37,12 +37,13 @@ class Histogram {
         });
 
         return entries
-            .map(([_, count]) => (count / this.totalLetters) * 100)
-            .filter(([_, count]) => count >= 1)
-            .map(
-                ([char, count]) =>
-                    `${char}: ${"#".repeat(Math.round(count))}${count.toFixed(2)}%`
-            )
+            .map(([char, count]) => {
+                count = (count / this.totalLetters) * 100;
+                return count >= 1
+                    ? `${char}: ${"#".repeat(Math.round(count))}${count.toFixed(2)}%`
+                    : null;
+            })
+            .filter((entry) => entry !== null)
             .join("\n");
     }
 }
