@@ -27,16 +27,10 @@ class Histogram {
     }
 
     toString() {
-        let entries = [...this.letterCounts];
-        entries.sort(([aChar, aCount], [bChar, bCount]) => {
-            if (aCount === bCount) {
-                return aChar < bChar ? -1 : 1;
-            } else {
-                return bCount - aCount;
-            }
-        });
-
-        return entries
+        return [...this.letterCounts]
+            .sort(([aChar, aCount], [bChar, bCount]) =>
+                aCount === bCount ? aChar.localeCompare(bChar) : bCount - aCount
+            )
             .reduce((acc, [char, count]) => {
                 count = (count / this.totalLetters) * 100;
                 if (count >= 1) {
